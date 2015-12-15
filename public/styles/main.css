@@ -1,0 +1,59 @@
+body {
+
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: #14805E;
+    padding: 20px;
+    margin: 0px;
+    color: #fff;
+}
+
+#grid-view {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#grid-view table {
+    border-top: 1px solid #FFDF1B;
+    border-bottom: 1px solid #FFDF1B;
+    border-collapse: collapse;
+    width: 600px;
+}
+
+#grid-view table thead th, #grid-view table tbody td {
+    padding: 4px;
+}
+
+#grid-view table thead th {
+
+    background-color: #09AE7D;
+    border: none;
+    text-align: left;
+}
+
+#grid-view table tbody tr.odd td {
+    background-color: #089168;
+}
+
+#grid-view table tbody td {
+    transition: color 0.5s;
+}
+
+#grid-view table tbody td.updated {
+    transition: color 0.33s;
+    color: #FFDF1B;
+}
+
+.button {
+    display: inline-block;
+    padding: 5px;
+    background-color: #FFDF1B;
+    border-radius:3px;
+    color: #262626;
+    font-size: 0.8em;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: #ccaf00;
+}
+

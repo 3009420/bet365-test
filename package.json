@@ -1,0 +1,24 @@
+{
+  "name": "bet365-test",
+  "version": "0.0.0",
+  "description": "test by David Roberts for Bet365",
+  "main": "server/app.js",
+  "scripts": {
+    "test": "n/a"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/n/a"
+  },
+  "keywords": [
+    "n/a"
+  ],
+  "author": "David Roberts",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/n/a/issues"
+  },
+  "dependencies": {
+    "express": "~4.13.3"
+  }
+}

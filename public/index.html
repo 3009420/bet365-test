@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Best365 Test - David Roberts</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/main.css" />
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <a class="button" id="get-stats">Get live stats</a>
+        <div id="grid-view"></div>
+        <canvas id="chart-view" width="600", height="450"></canvas>
+
+    </div>
+
+    <script src="scripts/services/CSVParser.js"></script>
+    <script src="scripts/services/DeltaCSVParser.js"></script>
+    <script src="scripts/collections/BaseCollection.js"></script>
+    <script src="scripts/collections/MktCollection.js"></script>
+    <script src="scripts/models/BaseModel.js"></script>
+    <script src="scripts/views/BaseView.js"></script>
+    <script src="scripts/views/GridView.js"></script>
+    <script src="scripts/views/ChartView.js"></script>
+    <script src="scripts/app.js"></script>
+
+    <!-- inititalise application -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event){
+            window.Bet365.app.init();
+        });
+    </script>
+
+</body>
+
+</html>
