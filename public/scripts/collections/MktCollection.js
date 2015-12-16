@@ -9,6 +9,7 @@ window.Bet365.collections.MktCollection = (function(win){
             BaseCollection.apply(this, arguments);
 
             this.history = [this.data];
+            this.highestPrice = this.getHighestPrice(0, this.data);
         };
 
     MktCollection.prototype = Object.create(BaseCollection.prototype);
@@ -17,7 +18,7 @@ window.Bet365.collections.MktCollection = (function(win){
         return this.history;
     };
 
-    MktCollection.prototype.updateDeltas = function(rows){
+    MktCollection.prototype.updateDeltas = function(rows, tick){
 
         var rowsLen = rows.length;
 
@@ -44,18 +45,20 @@ window.Bet365.collections.MktCollection = (function(win){
             }
         }
 
+        this.data["tick"] = tick;
+        this.highestPrice = this.getHighestPrice(this.highestPrice, this.data);
         this.history.push(this.data);
+        this.fire("updatedCollection");
     };
 
-    MktCollection.prototype.getHighestPrice = function(){
+    MktCollection.prototype.getHighestPrice = function(highestPrice, data){
 
         var value,
-            highestPrice = 0,
-            dataLen = this.data.length;
+            dataLen = data.length;
 
         for (var i = 0; i < dataLen; i++){
 
-            value = parseInt(this.data[i]["Price"]);
+            value = parseInt(data[i]["Price"]);
 
             if (highestPrice < value){
                 highestPrice = value;

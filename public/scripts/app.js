@@ -32,9 +32,9 @@ window.Bet365.app = (function(win){
 
             deltaCSVParser = new DeltaCSVParser("/data/deltas.csv");
 
-            deltaCSVParser.on("updated", function(data){
+            deltaCSVParser.on("updated", function(args){
 
-                 mktDataCollection.updateDeltas(data);
+                 mktDataCollection.updateDeltas(args[0], args[1]);
             });
 
             getStatsBtn = document.getElementById("get-stats");

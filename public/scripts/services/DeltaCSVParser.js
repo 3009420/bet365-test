@@ -25,7 +25,7 @@ window.Bet365.services.DeltaCSVParser = (function(win){
 
                         if (!isNaN(parseInt(rows[i]))){
 
-                            self.fire("updated", deltaSet);
+                            self.fire("updated", [deltaSet, rows[i]]);
                             deltaSet = [];
 
                             setTimeout(function(){
