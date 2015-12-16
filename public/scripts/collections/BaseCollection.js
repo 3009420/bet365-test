@@ -10,6 +10,26 @@ window.Bet365.collections.BaseCollection = (function(win){
         this.events = {};
     };
 
+    BaseCollection.prototype.copyData = function(data){
+
+        var ret = [],
+            dataLen = data.length;
+
+        for (var i = 0; i < dataLen; i++){
+
+            for (var item in data[i]){
+
+                var retObj = {};
+
+                retObj[item] = data[i][item];
+            }
+
+            ret.push(retObj);
+        }
+
+        return ret;
+    };
+
     BaseCollection.prototype.forEach = function(forEachFunc){
 
         var dataLen = this.data.length;
