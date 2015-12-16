@@ -7,9 +7,15 @@ window.Bet365.collections.MktCollection = (function(win){
         MktCollection = function(){
 
             BaseCollection.apply(this, arguments);
+
+            this.history = [this.data];
         };
 
     MktCollection.prototype = Object.create(BaseCollection.prototype);
+
+    MktCollection.prototype.getUpdateHistory = function(){
+        return this.history;
+    };
 
     MktCollection.prototype.updateDeltas = function(rows){
 
@@ -37,6 +43,8 @@ window.Bet365.collections.MktCollection = (function(win){
                 this.fire("updatedModel", [i, "Chg %", rows[i][4]]);
             }
         }
+
+        this.history.push(this.data);
     };
 
     MktCollection.prototype.getHighestPrice = function(){
