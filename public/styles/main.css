@@ -38,7 +38,7 @@ body {
     transition: color 0.5s;
 }
 
-#gridview__datatable tbody td.updated {
+.gridview__datatable tbody td.updated {
     transition: color 0.33s;
     color: #FFDF1B;
 }
