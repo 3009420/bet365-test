@@ -10,7 +10,9 @@ window.Bet365.collections.MktCollection = (function(win){
 
             this.history = [this.data];
             this.highestPrice = this.getHighestPrice(0, this.data);
+            this.lowestPrice = this.getLowestPrice(this.highestPrice, this.data);
             this.totalTime = 0;
+
         };
 
     MktCollection.prototype = Object.create(BaseCollection.prototype);
@@ -24,8 +26,6 @@ window.Bet365.collections.MktCollection = (function(win){
         var rowsLen = rows.length;
 
         for (var i = 0; i < rowsLen; i++){
-
-            rows[i][2].length > 0 ? this.data[i]["Price"] = rows[i][2] : null;
 
             if (rows[i][2].length > 0){
 
@@ -45,14 +45,12 @@ window.Bet365.collections.MktCollection = (function(win){
                 this.fire("updatedModel", [i, "Chg %", rows[i][4]]);
             }
 
-            this.data[i]["tick"] = parseInt(tick);
+            this.data[i]["tick"] = this.history.length > 1 ? this.history[this.history.length - 1][0]["tick"] + parseInt(tick) : parseInt(tick);
         }
 
         this.highestPrice = this.getHighestPrice(this.highestPrice, this.data);
+        this.lowestPrice = this.getLowestPrice(this.lowestPrice, this.data);
         this.setTotalTime(tick);
-
-        //console.log("this.data.tick", this.data.tick);
-
         this.history.push(this.copyData(this.data));
         this.fire("updatedCollection");
     };
@@ -60,7 +58,24 @@ window.Bet365.collections.MktCollection = (function(win){
     MktCollection.prototype.setTotalTime = function(tick){
 
         this.totalTime = this.totalTime + parseInt(tick);
-    }
+    };
+
+    MktCollection.prototype.getLowestPrice = function(lowestPrice, data){
+
+        var value,
+            dataLen = data.length;
+
+        for (var i = 0; i < dataLen; i++){
+
+            value = parseInt(data[i]["Price"]);
+
+            if (lowestPrice > value){
+                lowestPrice = value
+            }
+        }
+
+        return lowestPrice;
+    };
 
     MktCollection.prototype.getHighestPrice = function(highestPrice, data){
 

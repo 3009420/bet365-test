@@ -17,7 +17,58 @@ window.Bet365.app = (function(win){
             MktDataCollection = win.Bet365.collections.MktCollection,
             BaseModel = win.Bet365.models.BaseModel,
             GridView = win.Bet365.views.GridView,
-            ChartView = win.Bet365.views.ChartView;
+            ChartView = win.Bet365.views.ChartView,
+            chartSeries = [
+                {
+                    name : "GOOG",
+                    color : "#990000"
+                },
+                {
+                    name : "BIDU",
+                    color : "#997300"
+                },
+                {
+                    name : "YNDX",
+                    color : "#009973"
+                },
+                {
+                    name : "BCOR",
+                    color : "#007399"
+                },
+                {
+                    name : "YHOO",
+                    color : "#000099"
+                },
+                {
+                    name : "MSFT",
+                    color : "#4c0099"
+                },
+                {
+                    name : "IACI",
+                    color : "#990099"
+                },
+                {
+                    name : "FB",
+                    color : "#99004d"
+                },
+                {
+                    name : "AAPL",
+                    color : "#FFFFFF"
+                },
+                {
+                    name : "TWTR",
+                    color : "#000000"
+                }
+            ],
+            chartConfig = {
+                width: 600,
+                height: 450,
+                axisColor : "#FFDF1B",
+                lineWidth : 1,
+                backgroundColor : "#089168",
+                axisWidth : 1
+
+            };
 
         csvParser = new CSVParser("/data/snapshot.csv");
 
@@ -25,7 +76,7 @@ window.Bet365.app = (function(win){
 
             mktDataCollection = new MktDataCollection(BaseModel, list);
             gridView = new GridView("grid-view", mktDataCollection);
-            chartView = new ChartView("chart-view", mktDataCollection);
+            chartView = new ChartView("chart-view", mktDataCollection, chartSeries, chartConfig);
 
             gridView.render();
             chartView.render();

@@ -12,14 +12,15 @@ window.Bet365.collections.BaseCollection = (function(win){
 
     BaseCollection.prototype.copyData = function(data){
 
-        var ret = [],
+        var retObj,
+            ret = [],
             dataLen = data.length;
 
         for (var i = 0; i < dataLen; i++){
 
-            for (var item in data[i]){
+            retObj = {};
 
-                var retObj = {};
+            for (var item in data[i]){
 
                 retObj[item] = data[i][item];
             }
