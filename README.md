@@ -1,6 +1,6 @@
 # Bet365 technical test by David Roberts
 
-This project uses node.js and express to serve up assets. Use the command: node server/app.js in the root project directory
+This project uses node.js and express to serve up assets. Be sure to install local node modules (npm) before using the command: node server/app.js in the root project directory
 to start the web server running locally. Access the page at http://localhost:8080.
 
 ##Notes on implementation
