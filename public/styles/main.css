@@ -7,38 +7,38 @@ body {
     color: #fff;
 }
 
-#grid-view {
+.gridview {
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-#grid-view table {
+.gridview__datatable {
     border-top: 1px solid #FFDF1B;
     border-bottom: 1px solid #FFDF1B;
     border-collapse: collapse;
     width: 600px;
 }
 
-#grid-view table thead th, #grid-view table tbody td {
+.gridview__datatable thead th, .gridview__datatable tbody td {
     padding: 4px;
 }
 
-#grid-view table thead th {
+.gridview__datatable thead th {
 
     background-color: #09AE7D;
     border: none;
     text-align: left;
 }
 
-#grid-view table tbody tr.odd td {
+.gridview__datatable tbody tr.odd td {
     background-color: #089168;
 }
 
-#grid-view table tbody td {
+.gridview__datatable tbody td {
     transition: color 0.5s;
 }
 
-#grid-view table tbody td.updated {
+#gridview__datatable tbody td.updated {
     transition: color 0.33s;
     color: #FFDF1B;
 }

@@ -28,7 +28,7 @@ window.Bet365.views.GridView = (function (win) {
         tableCell.textContent = value;
         tableCell.setAttribute("class", tableCell.getAttribute("class") + " updated");
         setTimeout(function(){
-            tableCell.setAttribute("class", tableCell.getAttribute("class").replace(" updated", ""));
+            tableCell.setAttribute("class", tableCell.getAttribute("class").replace("updated", ""));
         }, 666)
     };
 
@@ -72,6 +72,8 @@ window.Bet365.views.GridView = (function (win) {
         });
 
         table.appendChild(tbody);
+
+        table.setAttribute("class", "gridview__datatable")
 
         this.rootElement.appendChild(table);
     };
